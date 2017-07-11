@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Download an Oracle Table to a CSV File | Heaton Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051__author__ = &apos;jheaton&apos;import codecsimport csvimport cx_OracleORACLE_CONNECT = &quot;schema/password@(DESCRIPTION">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Download an Oracle Table to a CSV File">
+<meta property="og:url" content="http://www.heatonresearch.com/content/oracle2csv.html">
+<meta property="og:site_name" content="Heaton Research">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051__author__ = &apos;jheaton&apos;import codecsimport csvimport cx_OracleORACLE_CONNECT = &quot;schema/password@(DESCRIPTION">
+<meta property="og:updated_time" content="2017-07-11T16:18:08.809Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Download an Oracle Table to a CSV File">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051__author__ = &apos;jheaton&apos;import codecsimport csvimport cx_OracleORACLE_CONNECT = &quot;schema/password@(DESCRIPTION">
+<meta name="twitter:creator" content="@jeffheaton">
+  
+    <link rel="alternate" href="/atom.xml" title="Heaton Research" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5393865-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Heaton Research</a></li>
+        
+          <li><a class=""
+                 href="/about/">About</a></li>
+        
+          <li><a class=""
+                 href="/blog/">Blog</a></li>
+        
+          <li><a class=""
+                 href="/encog/">Encog</a></li>
+        
+          <li><a class=""
+                 href="/book/">Books</a></li>
+        
+          <li><a class=""
+                 href="/aifh/">AIFH</a></li>
+        
+          <li><a class=""
+                 href="/jeff_index/">Articles</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-12 blog-main">
+      <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+
+
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">__author__ = <span class="string">'jheaton'</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> codecs</div><div class="line"><span class="keyword">import</span> csv</div><div class="line"><span class="keyword">import</span> cx_Oracle</div><div class="line"></div><div class="line">ORACLE_CONNECT = <span class="string">"schema/password@(DESCRIPTION=(SOURCE_ROUTE=OFF)(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=host)(PORT=1532)))(CONNECT_DATA=(SID=STLPESP)(SRVR=sid)))"</span></div><div class="line">OUTPUT_ENCODING = <span class="string">"utf-8"</span></div><div class="line">BATCH_SIZE = <span class="number">100000</span></div><div class="line"></div><div class="line">ORACLE_SQL = <span class="string">"""</span></div><div class="line">select * from mytable</div><div class="line">"""</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">append_row</span><span class="params">(filename,rows)</span>:</span></div><div class="line">    <span class="keyword">with</span> codecs.open(filename, <span class="string">"a"</span>, OUTPUT_ENCODING) <span class="keyword">as</span> outfile:</div><div class="line">        output = csv.writer(outfile, dialect=<span class="string">'excel'</span>)</div><div class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> rows:</div><div class="line">            output.writerow(row)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">export_table_data</span><span class="params">(orcl,filename)</span>:</span></div><div class="line">    <span class="comment"># output each table content to a separate CSV file</span></div><div class="line"></div><div class="line">    <span class="keyword">with</span> codecs.open(filename, <span class="string">"w"</span>, OUTPUT_ENCODING) <span class="keyword">as</span> infile:</div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line">    sql = ORACLE_SQL</div><div class="line">    curs2 = orcl.cursor()</div><div class="line">    curs2.execute(sql)</div><div class="line"></div><div class="line">    cols = []</div><div class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> curs2.description:</div><div class="line">        cols.append(col[<span class="number">0</span>])</div><div class="line">    append_row(filename, [cols] )</div><div class="line"></div><div class="line">    row = <span class="number">0</span></div><div class="line">    done = <span class="keyword">False</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">not</span> done: <span class="comment"># add table rows</span></div><div class="line">        row_data = curs2.fetchmany(BATCH_SIZE)</div><div class="line"></div><div class="line">        <span class="keyword">if</span> len(row_data)&lt;<span class="number">1</span>:</div><div class="line">            done = <span class="keyword">True</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            append_row(filename, row_data)</div><div class="line">            row+=len(row_data)</div><div class="line">            print(<span class="string">"&#123;:,d&#125;"</span>.format(row))</div><div class="line"></div><div class="line">orcl = cx_Oracle.connect(ORACLE_CONNECT)</div><div class="line">print(<span class="string">"Connected to Oracle: "</span> + orcl.version)</div><div class="line"></div><div class="line">export_table_data(orcl,<span class="string">"output.csv"</span>)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://www.heatonresearch.com//content/oracle2csv.html" data-id="cj4zvkhtu002ds8vkoio6ju3e" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+
+    </footer>
+  </div>
+  
+    
+
+  
+</article>
+
+    </div>
+</div>
+
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2017 by Heaton Research, Inc. - <a href="/legal/">Legal and Copyright Info</a><br>
+Jeff Heaton is a computer scientist, data scientist, and indie publisher. Heaton Research is the homepage for his projects and research.
+    </div>
+  </div>
+</footer>
+
+  
+<script>
+  var disqus_shortname = 'heatonresearch';
+  
+  var disqus_url = 'http://www.heatonresearch.com//content/oracle2csv.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

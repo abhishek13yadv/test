@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Care and Feeding of a Python Environment | Heaton Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="EnvironmentsList your environments:1conda env list Select an environment (Linux, OS X):1source activate tensorflow Select an environment (Windows):1activate tensorflow Deactivate Environment (Linux, O">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Care and Feeding of a Python Environment">
+<meta property="og:url" content="http://www.heatonresearch.com/content/python_care.html">
+<meta property="og:site_name" content="Heaton Research">
+<meta property="og:description" content="EnvironmentsList your environments:1conda env list Select an environment (Linux, OS X):1source activate tensorflow Select an environment (Windows):1activate tensorflow Deactivate Environment (Linux, O">
+<meta property="og:updated_time" content="2017-07-11T16:19:41.625Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Care and Feeding of a Python Environment">
+<meta name="twitter:description" content="EnvironmentsList your environments:1conda env list Select an environment (Linux, OS X):1source activate tensorflow Select an environment (Windows):1activate tensorflow Deactivate Environment (Linux, O">
+<meta name="twitter:creator" content="@jeffheaton">
+  
+    <link rel="alternate" href="/atom.xml" title="Heaton Research" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5393865-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Heaton Research</a></li>
+        
+          <li><a class=""
+                 href="/about/">About</a></li>
+        
+          <li><a class=""
+                 href="/blog/">Blog</a></li>
+        
+          <li><a class=""
+                 href="/encog/">Encog</a></li>
+        
+          <li><a class=""
+                 href="/book/">Books</a></li>
+        
+          <li><a class=""
+                 href="/aifh/">AIFH</a></li>
+        
+          <li><a class=""
+                 href="/jeff_index/">Articles</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-12 blog-main">
+      <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+
+
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Environments"><a href="#Environments" class="headerlink" title="Environments"></a>Environments</h1><p>List your environments:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda env list</div></pre></td></tr></table></figure></p>
+<p>Select an environment (Linux, OS X):<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source activate tensorflow</div></pre></td></tr></table></figure></p>
+<p>Select an environment (Windows):<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">activate tensorflow</div></pre></td></tr></table></figure></p>
+<p>Deactivate Environment (Linux, OS X)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source deactivate</div></pre></td></tr></table></figure></p>
+<p>Deactivate Environment (Windows, Linux, OS X)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">deactivate</div></pre></td></tr></table></figure></p>
+<h1 id="Create-Environment"><a href="#Create-Environment" class="headerlink" title="Create Environment"></a>Create Environment</h1><p>Create an environment:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda create --name tensorflow python=3.5</div></pre></td></tr></table></figure></p>
+<h1 id="Update-Install"><a href="#Update-Install" class="headerlink" title="Update/Install"></a>Update/Install</h1><p>Update app packages:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda update --all</div></pre></td></tr></table></figure></p>
+<p>Update one package:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install tensorflow --upgrade</div></pre></td></tr></table></figure></p>
+<p>Update Python to latest point version:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda update python</div></pre></td></tr></table></figure></p>
+<p>Update Python to later version:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install python=3.6</div></pre></td></tr></table></figure></p>
+<p>Version of a package:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(tensorflow)Jeffreys-MacBook-Pro:present jeff$ python</div><div class="line">Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:52:12) </div><div class="line">[GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)] on darwin</div><div class="line">Type "help", "copyright", "credits" or "license" for more information.</div><div class="line"><span class="meta">&gt;</span>&gt;&gt; import tensorflow</div><div class="line"><span class="meta">&gt;</span>&gt;&gt; print(tensorflow.__version__)</div><div class="line">0.8.0</div><div class="line"><span class="meta">&gt;</span>&gt;&gt; </div></pre></td></tr></table></figure>
+<p>You might want to add a new environment to Jupyter notebook.  By default, Jupyter will use<br>what ever environment you have active when you launch Jupyter.  However, if you would like<br>to allow your new environment to be used in Jupyter execute the following:</p>
+<p>For Mac:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">source activate tensorflow</div><div class="line">pip install ipykernel</div><div class="line">python -m ipykernel install --user --name=tensorflow</div></pre></td></tr></table></figure>
+<p>For Windows:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">activate tensorflow</div><div class="line">pip install ipykernel</div><div class="line">python -m ipykernel install --user --name=tensorflow</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://www.heatonresearch.com//content/python_care.html" data-id="cj4zvkhtx002gs8vkt4740s8z" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+
+    </footer>
+  </div>
+  
+    
+
+  
+</article>
+
+    </div>
+</div>
+
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2017 by Heaton Research, Inc. - <a href="/legal/">Legal and Copyright Info</a><br>
+Jeff Heaton is a computer scientist, data scientist, and indie publisher. Heaton Research is the homepage for his projects and research.
+    </div>
+  </div>
+</footer>
+
+  
+<script>
+  var disqus_shortname = 'heatonresearch';
+  
+  var disqus_url = 'http://www.heatonresearch.com//content/python_care.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

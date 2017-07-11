@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Programming Neural Networks with Encog3 in Java, 2nd Edition | Heaton Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DescriptionIntroduction to Neural Networks fpr C#, Second Edition, introduces the C# programmer to the world of Neural Networks and Artificial Intelligence. Neural network architectures, such as the f">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Programming Neural Networks with Encog3 in Java, 2nd Edition">
+<meta property="og:url" content="http://www.heatonresearch.com/book/programming-neural-networks-encog3-java.html">
+<meta property="og:site_name" content="Heaton Research">
+<meta property="og:description" content="DescriptionIntroduction to Neural Networks fpr C#, Second Edition, introduces the C# programmer to the world of Neural Networks and Artificial Intelligence. Neural network architectures, such as the f">
+<meta property="og:updated_time" content="2017-07-01T03:28:39.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Programming Neural Networks with Encog3 in Java, 2nd Edition">
+<meta name="twitter:description" content="DescriptionIntroduction to Neural Networks fpr C#, Second Edition, introduces the C# programmer to the world of Neural Networks and Artificial Intelligence. Neural network architectures, such as the f">
+<meta name="twitter:creator" content="@jeffheaton">
+  
+    <link rel="alternate" href="/atom.xml" title="Heaton Research" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5393865-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Heaton Research</a></li>
+        
+          <li><a class=""
+                 href="/about/">About</a></li>
+        
+          <li><a class=""
+                 href="/blog/">Blog</a></li>
+        
+          <li><a class=""
+                 href="/encog/">Encog</a></li>
+        
+          <li><a class=""
+                 href="/book/">Books</a></li>
+        
+          <li><a class=""
+                 href="/aifh/">AIFH</a></li>
+        
+          <li><a class=""
+                 href="/jeff_index/">Articles</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-12 blog-main">
+      <table border="0">
+      <tr><td valign="top" width="300"><img width="256" height="312" src="/images/books/9781604390216-md.jpg" border="1" alt="All AI ebooks by Jeff Heaton"></td><td valign="top">
+      <table border=0>
+      <tr><td><b>Title:</b></td><td>Programming Neural Networks with Encog3 in Java, 2nd Edition</td></tr>
+      <tr><td><b>ISBN:</b></td><td>9781604390216</td></tr>
+      <tr><td><b>Author:</b></td><td>Jeff Heaton</td></tr>
+      <tr><td><b>Pages:</b></td><td>226</td></tr>
+      <tr><td><b>Status:</b></td><td>Available</td></tr>
+      
+      
+      <tr><td><b>Errata:</b></td><td><a href="{{page.url | remove:'.html'}}_err.html">[View]</a></td></tr>
+      
+      </table>
+
+      <br>Note: Our PDF books contain no DRM and can be printed, copied to multiple computers owned by you, and once downloaded do not require an internet connection.<br></td></tr>
+      </table><br>
+      
+      <h1>Purchasing</h1>
+      
+      <table>
+
+      
+        
+          
+      <tr><td>$24.99 (USD)</td><td><b></b></td><td><a href="http://www.amazon.com/dp/1604390212">[Buy]</a></td></tr>
+          
+        
+          
+      <tr><td>$9.99 (USD)</td><td><b></b></td><td><a href="http://www.amazon.com/dp/B005S0FNBS">[Buy]</a></td></tr>
+          
+        
+          
+      <tr><td>$9.99 (USD)</td><td><b>Buy DRMFree PDF EBook Pack</b></td><td>
+      <a href="https://www.e-junkie.com/ecom/gb.php?c=cart&i=Encog3Java.zip&cl=207979&ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="http://www.e-junkie.com/ej/ej_add_to_cart.gif" border="0" alt="Add to Cart"/></a>
+      &nbsp;
+      <a href="https://www.e-junkie.com/ecom/gb.php?c=cart&cl=207979&ejc=2" target="ej_ejc" class="ec_ejc_thkbx" onClick="javascript:return EJEJC_lc(this);"><img src="http://www.e-junkie.com/ej/ej_view_cart.gif" border="0" alt="View Cart"/></a>
+      <script language="javascript" type="text/javascript">
+      <!--
+      function EJEJC_lc(th) { return false; }
+      // -->
+      </script>
+      <script src='http://www.e-junkie.com/ecom/box.js' type='text/javascript'></script>
+          
+        
+      
+      </table> <br>
+      <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Introduction to Neural Networks fpr C#, Second Edition, introduces the C# programmer to the world of Neural Networks and Artificial Intelligence. Neural network architectures, such as the feedforward, Hopfield, and self-organizing map architectures are discussed. Training techniques, such as backpropagation, genetic algorithms and simulated annealing are also introduced. Practical examples are given for each neural network. Examples include the traveling salesman problem, handwriting recognition, financial prediction, game strategy, mathematical functions, and Internet bots. All C# source code is available online for easy downloading.</p>
+<h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><p>Chapter 1 provides an overview of neural networks. You will be introduced to the mathematical underpinnings of neural networks and how to calculate their values manually. You will also see how neural networks use weights and thresholds to determine their output. Matrix math plays a central role in neural network processing.</p>
+<p>Chapter 2 introduces matrix operations and demonstrates how to implement them in C#. The mathematical concepts of matrix operations used later in this book are discussed. Additionally, C# classes are provided which accomplish each of the required matrix operations. One of the most basic neural networks is the Hopfield neural network.</p>
+<p>Chapter 3 demonstrates how to use a Hopfield Neural Network. You will be shown how to construct a Hopfield neural network and how to train it to recognize patterns.</p>
+<p>Chapter 4 introduces the concept of machine learning. To train a neural network, the weights and thresholds are adjusted until the network produces the desired output. There are many different ways training can be accomplished. This chapter introduces the different training methods.</p>
+<p>Chapter 5 introduces perhaps the most common neural network architecture, the feedforward backpropagation neural network. This type of neural network is the central focus of this book. In this chapter, you will see how to construct a feedforward neural network and how to train it using backpropagation. Backpropagation may not always be the optimal training algorithm.</p>
+<p>Chapter 6 expands upon backpropagation by showing how to train a network using a genetic algorithm. A genetic algorithm creates a population of neural networks and only allows the best networks to ?mate? and produce offspring. Simulated annealing can also be a very effective means of training a feedforward neural network.</p>
+<p>Chapter 7 continues the discussion of training methods by introducing simulated annealing. Simulated annealing simulates the heating and cooling of a metal to produce an optimal solution. Neural networks may contain unnecessary neurons.</p>
+<p>Chapter 8 explains how to prune a neural network to its optimal size. Pruning allows unnecessary neurons to be removed from the neural network without adversely affecting the error rate of the network. The neural network will process information more quickly with fewer neurons. Prediction is another popular use for neural networks.</p>
+<p>Chapter 9 introduces temporal neural networks, which attempt to predict the future. Prediction networks can be applied to many different problems, such as the prediction of sunspot cycles, weather, and the financial markets.</p>
+<p>Chapter 10 builds upon chapter 9 by demonstrating how to apply temporal neural networks to the financial markets. The resulting neural network attempts to predict the direction of the S &amp; P 500. Another neural network architecture is the self-organizing map (SOM). SOM?s are often used to group input into categories and are generally trained with an unsupervised training algorithm. An SOM uses a winner-takes-all strategy, in which the output is provided by the winning neuron?output is not produced by each of the neurons.</p>
+<p>Chapter 11 provides an introduction to SOMs and demonstrates how to use them. Handwriting recognition is a popular use for SOMs.</p>
+<p>Chapter 12 continues where chapter 11 leaves off, by demonstrating how to use an SOM to read handwritten characters. The neural network must be provided with a sample of the handwriting that it is to analyze. This handwriting is categorized using the 26 characters of the Latin alphabet. The neural network is then able to recognize new characters.</p>
+<p>Chapter 13 introduces bot programming and explains how to use a neural network to help identify data. Bots are computer programs that perform repetitive tasks. An HTTP bot is a special type of bot that uses the web much like a human uses it. The neural network is trained to recognize the specific types of data for which the bot is searching.</p>
+<p>The book ends with chapter 14, which discusses the future of neural networks, quantum computing, and how it applies to neural networks. The Encog neural network framework is also introduced.</p>
+
+
+    </div>
+</div>
+
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2017 by Heaton Research, Inc. - <a href="/legal/">Legal and Copyright Info</a><br>
+Jeff Heaton is a computer scientist, data scientist, and indie publisher. Heaton Research is the homepage for his projects and research.
+    </div>
+  </div>
+</footer>
+
+  
+<script>
+  var disqus_shortname = 'heatonresearch';
+  
+  var disqus_url = 'http://www.heatonresearch.com/book/programming-neural-networks-encog3-java.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>

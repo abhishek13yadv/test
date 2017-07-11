@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Encog CUDA/GPU Support | Heaton Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Encog CUDA SupportEncog for C can make use of a nVidia CUDA enabled GPU for increased performance. Even ifyou do not plan to program in C, you can use the Encog for C command line tool to trainneural">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Encog CUDA&#x2F;GPU Support">
+<meta property="og:url" content="http://www.heatonresearch.com/encog/encog_gpu.html">
+<meta property="og:site_name" content="Heaton Research">
+<meta property="og:description" content="Encog CUDA SupportEncog for C can make use of a nVidia CUDA enabled GPU for increased performance. Even ifyou do not plan to program in C, you can use the Encog for C command line tool to trainneural">
+<meta property="og:updated_time" content="2017-07-01T03:28:39.382Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Encog CUDA&#x2F;GPU Support">
+<meta name="twitter:description" content="Encog CUDA SupportEncog for C can make use of a nVidia CUDA enabled GPU for increased performance. Even ifyou do not plan to program in C, you can use the Encog for C command line tool to trainneural">
+<meta name="twitter:creator" content="@jeffheaton">
+  
+    <link rel="alternate" href="/atom.xml" title="Heaton Research" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5393865-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Heaton Research</a></li>
+        
+          <li><a class=""
+                 href="/about/">About</a></li>
+        
+          <li><a class=""
+                 href="/blog/">Blog</a></li>
+        
+          <li><a class=""
+                 href="/encog/">Encog</a></li>
+        
+          <li><a class=""
+                 href="/book/">Books</a></li>
+        
+          <li><a class=""
+                 href="/aifh/">AIFH</a></li>
+        
+          <li><a class=""
+                 href="/jeff_index/">Articles</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-12 blog-main">
+      <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+
+
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Encog-CUDA-Support"><a href="#Encog-CUDA-Support" class="headerlink" title="Encog CUDA Support"></a>Encog CUDA Support</h1><p>Encog for C can make use of a nVidia CUDA enabled GPU for increased performance. Even if<br>you do not plan to program in C, you can use the Encog for C command line tool to train<br>neural networks. Encog for C makes use of the same EG Files and EGB Files used by other<br>Encog platforms, such as the Encog Workbench. CUDA is a very specialized architecture and<br>will not provide a performance boost for all operations. Currently CUDA can only be used<br>with the PSO training method. It is unlikely that RPROP will be extended to CUDA as the<br>CUDA architecture is not particularly conducive to RPROP. RPROP, due to is “backward<br>propagation” nature requires the activations of all neurons to be kept. Memory access is<br>one of the most cycle-intensive aspects of GPU programming. CUDA can achieve great speeds<br>when a SMALL amount of memory must be kept during training. CUDA also works well if a small<br>amount of memory is kept temporarily and then overwritten as training progresses. This is<br>the case with PSO.</p>
+<h2 id="Using-CUDA-with-Encog-for-C"><a href="#Using-CUDA-with-Encog-for-C" class="headerlink" title="Using CUDA with Encog for C"></a>Using CUDA with Encog for C</h2><p>When Encog for C is compiled CUDA must be specified. The command to compile Encog with<br>CUDA is given here.</p>
+<pre>make CUDA=1 ARCH=64</pre>
+The above command will compile Encog for CUDA and 64-bit CPU. This is the most advanced 
+build of Encog for C. I provide CUDA binaries for both Mac and Windows.
+To find out if your version of Encog for C supports CUDA issue the following command.
+<pre>encog-cmd CUDA</pre>
+This will perform a simple test of the CUDA system. If you are using a CUDA Encog build 
+the version will be reported like this:
+<pre>* * Encog C/C++ (64 bit, CUDA) Command Line v1.0 * *</pre>
+If you are using a CUDA build, but your system does not have CUDA drivers or a CUDA GPU, 
+you will receive a system dependent error message. For more information, see the 
+troubleshooting section of Encog for C.
+
+The CUDA build of Encog will always use the GPU if the training method supports it. To 
+disable the GPU, use the option /gpu:0. You can also specify /gpu:1 to enable the GPU; 
+however, this is redundant, given that the default operation is to use the GPU. The GPU 
+will only be used with PSO training.
+
+A Simple Benchmark
+------------------
+
+The Encog command line utility contains a simple benchmark. This benchmark can be used to compare training results between GPU/CPU and CPU only. When the GPU is enabled, Encog is still making full use of your CPU cores. The GPU is simply brought in to assist with certain calculations. The following shows the output from a simple benchmark run. The benchmark is 10,000 data items of 10 inputs and one output, and 100 iterations of PSO. The following time is achieved using GPU and CPU.
+
+<pre>heaton:encog-c jheaton$ ./encog benchmark /gpu:1
+
+* * Encog C/C++ (64 bit, CUDA) Command Line v1.0 * *
+Processor/Core Count: 8
+Basic Data Type: double (64 bits)
+GPU: enabled
+Input Count: 10
+Ideal Count: 1
+Records: 10000
+Iterations: 100
+
+Performing benchmark...please wait
+Benchmark time(seconds): 4.2172
+Benchmark time includes only training time.
+
+Encog Finished.  Run time 00:00:04.4040
+heaton:encog-c jheaton$
+As you can see from above, the benchmark was completed in 4.2 seconds. Now we will try the same benchmark, but disable the GPU.
+heaton:encog-c jheaton$ ./encog benchmark /gpu:0
+
+* * Encog C/C++ (64 bit, CUDA) Command Line v1.0 * *
+Processor/Core Count: 8
+Basic Data Type: double (64 bits)
+GPU: disabled
+Input Count: 10
+Ideal Count: 1
+Records: 10000
+Iterations: 100
+
+Performing benchmark...please wait
+Benchmark time(seconds): 5.3727
+Benchmark time includes only training time.
+
+Encog Finished.  Run time 00:00:05.3749
+heaton:encog-c jheaton$ </pre>
+
+<p>As you can see, the benchmark was completed in one less second.<br>As you increase the amount of training data the gap tends to increase.<br>On small training sets, the overhead of involving the GPU may actually slow training.<br>You would not want to use the GPU on a simple XOR train.</p>
+<p>The above benchmark was performed on a MacBook Pro with an Intel i7 CPU and a nVidia<br>650M GPU. For more information on the computer see the article on Jeff’s Computers.<br>Results will be better with more advanced GPU’s. The M on the 650 also means that this is<br>a “mobile” edition of the GPU. Mobile GPU’s tend to perform worse than desktop GPUs.</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://www.heatonresearch.com/encog/encog_gpu.html" data-id="cj4zvkhtz002hs8vkpw6pbb1y" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+
+    </footer>
+  </div>
+  
+    
+
+  
+</article>
+
+    </div>
+</div>
+
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2017 by Heaton Research, Inc. - <a href="/legal/">Legal and Copyright Info</a><br>
+Jeff Heaton is a computer scientist, data scientist, and indie publisher. Heaton Research is the homepage for his projects and research.
+    </div>
+  </div>
+</footer>
+
+  
+<script>
+  var disqus_shortname = 'heatonresearch';
+  
+  var disqus_url = 'http://www.heatonresearch.com/encog/encog_gpu.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+</body>
+</html>

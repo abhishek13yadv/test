@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>How do I create a multi-class Support Vector Machine | Heaton Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="It is impossable to create a Support Vector Machine with more than one output value. This is inherent in the way that SVM’s are defined. Unlike neural networks, which have multiple output neurons, a S">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How do I create a multi-class Support Vector Machine">
+<meta property="og:url" content="http://www.heatonresearch.com/content/encog_svm_multiclass.html">
+<meta property="og:site_name" content="Heaton Research">
+<meta property="og:description" content="It is impossable to create a Support Vector Machine with more than one output value. This is inherent in the way that SVM’s are defined. Unlike neural networks, which have multiple output neurons, a S">
+<meta property="og:updated_time" content="2017-07-11T16:14:32.663Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How do I create a multi-class Support Vector Machine">
+<meta name="twitter:description" content="It is impossable to create a Support Vector Machine with more than one output value. This is inherent in the way that SVM’s are defined. Unlike neural networks, which have multiple output neurons, a S">
+<meta name="twitter:creator" content="@jeffheaton">
+  
+    <link rel="alternate" href="/atom.xml" title="Heaton Research" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/styles.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5393865-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</head>
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class=""
+                 href="/index.html">Heaton Research</a></li>
+        
+          <li><a class=""
+                 href="/about/">About</a></li>
+        
+          <li><a class=""
+                 href="/blog/">Blog</a></li>
+        
+          <li><a class=""
+                 href="/encog/">Encog</a></li>
+        
+          <li><a class=""
+                 href="/book/">Books</a></li>
+        
+          <li><a class=""
+                 href="/aifh/">AIFH</a></li>
+        
+          <li><a class=""
+                 href="/jeff_index/">Articles</a></li>
+        
+          <li><a class=""
+                 href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-sm-12 blog-main">
+      <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+
+
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>It is impossable to create a Support Vector Machine with more than one output value. This is inherent in the way that SVM’s are defined. Unlike neural networks, which have multiple output neurons, a SVM always has one single output. However, this does not mean that you cannot do multi-class classification with a SVM. Multi-class classification is the usual reason for having multiple output neurons in a neural network.</p>
+<p>To do this with an SVM your input must still be the regular normalized input values that an SVM typically needs. Input should always be normalized to 0 to 1. However, your output is totally un-normalized. Think of your output as a class number. Zero is your first class, one is your second, up to however many classes you actually have. Do not use decimal numbers. You cannot have class 1.5. Because the output of a SVM is a double number you must encode your class numbers as integer doubles, i.e. 0.0, 1.0, 2.0, 3.0 etc… as many as you need.</p>
+<p>The following program is an example of this in C#.</p>
+<figure class="highlight c"><figcaption><span>#</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">using</span> System;</div><div class="line"><span class="keyword">using</span> System.Collections.Generic;</div><div class="line"><span class="keyword">using</span> System.Linq;</div><div class="line"><span class="keyword">using</span> System.Text;</div><div class="line"><span class="keyword">using</span> Encog.ML.SVM;</div><div class="line"><span class="keyword">using</span> Encog.ML.Data;</div><div class="line"><span class="keyword">using</span> Encog.ML.Data.Basic;</div><div class="line"><span class="keyword">using</span> Encog.ML.Train;</div><div class="line"><span class="keyword">using</span> Encog.ML.SVM.Training;</div><div class="line"></div><div class="line"><span class="keyword">namespace</span> MultiClassSVM</div><div class="line">&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">/// </span></div><div class="line"></div><div class="line">        <span class="comment">/// Input for function, normalized to 0 to 1.</span></div><div class="line">        <span class="comment">/// </span></div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[][] ClassificationInput = &#123;</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.0</span>, <span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.1</span>, <span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.2</span>, <span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.3</span>, <span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.4</span>, <span class="number">0.5</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.5</span>, <span class="number">0.5</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.6</span>, <span class="number">0.5</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.7</span>, <span class="number">0.5</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.8</span>, <span class="number">0.5</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.9</span>, <span class="number">0.5</span>&#125;</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">        <span class="comment">/// </span></div><div class="line"></div><div class="line">        <span class="comment">/// Ideal output, these are class numbers, a total of four classes here (0,1,2,3).</span></div><div class="line">        <span class="comment">/// DO NOT USE FRACTIONAL CLASSES (i.e. there is no class 1.5)</span></div><div class="line">        <span class="comment">/// </span></div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span>[][] ClassificationIdeal = &#123;</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">0.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">1.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">1.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">2.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">2.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">3.0</span>&#125;,</div><div class="line">            <span class="keyword">new</span>[] &#123;<span class="number">3.0</span>&#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></div><div class="line">        &#123;</div><div class="line">            <span class="comment">// create a neural network, without using a factory</span></div><div class="line">            var svm = <span class="keyword">new</span> SupportVectorMachine(<span class="number">2</span>, <span class="literal">false</span>); <span class="comment">// 2 input, &amp; false for classification</span></div><div class="line"></div><div class="line">            <span class="comment">// create training data</span></div><div class="line">            IMLDataSet trainingSet = <span class="keyword">new</span> BasicMLDataSet(ClassificationInput, ClassificationIdeal);</div><div class="line"></div><div class="line">            <span class="comment">// train the SVM</span></div><div class="line">            IMLTrain train = <span class="keyword">new</span> SVMSearchTrain(svm, trainingSet);</div><div class="line"></div><div class="line">            <span class="keyword">int</span> epoch = <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">do</span></div><div class="line">            &#123;</div><div class="line">                train.Iteration();</div><div class="line">                Console.WriteLine(@<span class="string">"Epoch #"</span> + epoch + @<span class="string">" Error:"</span> + train.Error);</div><div class="line">                epoch++;</div><div class="line">            &#125; <span class="keyword">while</span> (train.Error &gt; <span class="number">0.01</span>);</div><div class="line"></div><div class="line">            <span class="comment">// test the SVM</span></div><div class="line">            Console.WriteLine(@<span class="string">"SVM Results:"</span>);</div><div class="line">            foreach (IMLDataPair pair in trainingSet)</div><div class="line">            &#123;</div><div class="line">                IMLData output = svm.Compute(pair.Input);</div><div class="line">                Console.WriteLine(pair.Input[<span class="number">0</span>]</div><div class="line">                                  + @<span class="string">", actual="</span> + output[<span class="number">0</span>] + @<span class="string">",ideal="</span> + pair.Ideal[<span class="number">0</span>]);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            Console.WriteLine(<span class="string">"Done"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>This will produce the following output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Epoch #1 Error:0</div><div class="line">SVM Results:</div><div class="line">0, actual=0,ideal=0</div><div class="line">0,1, actual=0,ideal=0</div><div class="line">0,2, actual=0,ideal=0</div><div class="line">0,3, actual=0,ideal=0</div><div class="line">0,4, actual=1,ideal=1</div><div class="line">0,5, actual=1,ideal=1</div><div class="line">0,6, actual=2,ideal=2</div><div class="line">0,7, actual=2,ideal=2</div><div class="line">0,8, actual=3,ideal=3</div><div class="line">0,9, actual=3,ideal=3</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://www.heatonresearch.com//content/encog_svm_multiclass.html" data-id="cj4zvkhtp0027s8vk3ehvax9v" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+
+    </footer>
+  </div>
+  
+    
+
+  
+</article>
+
+    </div>
+</div>
+
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2017 by Heaton Research, Inc. - <a href="/legal/">Legal and Copyright Info</a><br>
+Jeff Heaton is a computer scientist, data scientist, and indie publisher. Heaton Research is the homepage for his projects and research.
+    </div>
+  </div>
+</footer>
+
+  
+<script>
+  var disqus_shortname = 'heatonresearch';
+  
+  var disqus_url = 'http://www.heatonresearch.com//content/encog_svm_multiclass.html';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" integrity="sha384-8gBf6Y4YYq7Jx97PIqmTwLPin4hxIzQw5aDmUg/DDhul9fFpbbLcLh3nTIIDJKhx" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
